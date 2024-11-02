@@ -4,6 +4,8 @@ kind: Service
 metadata:
   name: mongo-external
   namespace: default
+  labels:
+    app: mongo-external-service
 spec:
   type: ExternalName
   externalName: booking.johpv.mongodb.net
