@@ -1,0 +1,9 @@
+# mongo-externalname.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-external
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: booking.johpv.mongodb.net
