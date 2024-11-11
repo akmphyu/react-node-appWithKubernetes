@@ -18,6 +18,7 @@ services:
   # Node.js Application Service
   app:
     build: .
+    image: akmp1611/booking_backend:latest
     container_name: booking_app
     environment:
       PORT: 5000

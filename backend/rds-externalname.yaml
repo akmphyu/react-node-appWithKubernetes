@@ -1,0 +1,11 @@
+# aws-rds-externalname.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: aws-rds-external
+  namespace: default
+  labels:
+    app: aws-rds-external-service
+spec:
+  type: ExternalName
+  externalName: booking.crcoc80imb9a.ap-southeast-1.rds.amazonaws.com

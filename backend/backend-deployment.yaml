@@ -19,5 +19,29 @@ spec:
           ports:
             - containerPort: 5000
           env:
-            - name: MONGO_URI
-              value: "mongodb+srv://admin:admin@booking.johpv.mongodb.net/?retryWrites=true&w=majority&appName=booking"
+            - name: PORT
+              value: "5000"
+            - name: DB_NAME
+              value: "booking"
+            - name: DB_USER
+              value: "admin"
+            - name: DB_PASSWORD
+              value: "Ak556655^"
+            - name: DB_HOST
+              value: "booking.crcoc80imb9a.ap-southeast-1.rds.amazonaws.com"
+            - name: DB_DIALECT
+              value: "mysql"
+---
+# backend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 5000 # Port accessible inside the cluster
+      targetPort: 5000 # Port where the container is listening
+  type: ClusterIP # Use LoadBalancer if you want it accessible externally
